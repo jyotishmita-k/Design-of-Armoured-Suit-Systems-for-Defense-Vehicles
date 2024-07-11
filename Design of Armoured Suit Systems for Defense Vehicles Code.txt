@@ -1,0 +1,553 @@
+// defines pins numbers
+#include <Servo.h> 
+
+const int trigPin = 2;
+const int echoPin1 = 22;
+const int echoPin2 = 23;
+const int echoPin3 = 24;
+const int echoPin4 = 25;
+const int echoPin5 = 26;
+const int echoPin6 = 27;
+const int echoPin7 = 28;
+const int echoPin8 = 29;
+const int echoPin9 = 30;
+const int echoPin10 = 31;
+const int echoPin11 = 32;
+const int echoPin12 = 33;
+const int echoPin13 = 34;
+const int echoPin14 = 35;
+const int echoPin15 = 36;
+const int echoPin16 = 37;
+const int echoPin17 = 38;
+const int echoPin18 = 39;
+const int echoPin19 = 40;
+const int echoPin20 = 41;
+const int echoPin21 = 42;
+const int echoPin22 = 43;
+const int echoPin23 = 44;
+const int echoPin24 = 45;
+int servoPin1 = A0; 
+int servoPin2 = A1;
+int servoPin3 = A2; 
+int servoPin4 = A3;
+int servoPin5 = 46;
+
+//const int greenLED1 = A0;
+//const int redLED1 = A1;
+//const int greenLED2 = A2;
+//const int redLED2 = A3;
+const int greenLED3 = A4;
+const int yellowLED3 = A5;
+const int redLED3 = A6;
+const int greenLED4 = A7;
+const int yellowLED4 = A8;
+const int redLED4 = A9;
+
+
+const int minor_danger_distance = 15;
+const int danger_distance = 5;
+// defines variables
+long duration1;
+long duration2;
+long duration3;
+long duration4;
+long duration5;
+long duration6;
+long duration7;
+long duration8;
+long duration9;
+long duration10;
+long duration11;
+long duration12;
+long duration13;
+long duration14;
+long duration15;
+long duration16;
+long duration17;
+long duration18;
+long duration19;
+long duration20;
+long duration21;
+long duration22;
+long duration23;
+long duration24;
+
+int distance24;
+int distance23;
+int distance22;
+int distance21;
+int distance20;
+int distance19;
+int distance18;
+int distance17;
+int distance16;
+int distance15;
+int distance14;
+int distance13;
+int distance12;
+int distance11;
+int distance10;
+int distance9;
+int distance8;
+int distance7;
+int distance6;
+int distance5;
+int distance4;
+int distance1;
+int distance2;
+int distance3;
+Servo Servo1;
+Servo Servo2;  
+Servo Servo3;
+Servo Servo4; 
+Servo Servo5;
+
+void setup() {
+   Servo1.attach(servoPin1);
+   Servo2.attach(servoPin2);
+   Servo3.attach(servoPin3);
+   Servo4.attach(servoPin4);
+   Servo5.attach(servoPin5);
+
+  pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
+  pinMode(echoPin1, INPUT);
+  pinMode(echoPin2, INPUT);
+  pinMode(echoPin3, INPUT);
+  pinMode(echoPin4, INPUT);
+  pinMode(echoPin5, INPUT);
+   pinMode(echoPin6, INPUT);
+   pinMode(echoPin7, INPUT);
+   pinMode(echoPin8, INPUT);
+   pinMode(echoPin9, INPUT);
+   pinMode(echoPin10, INPUT);
+   pinMode(echoPin11, INPUT);
+   pinMode(echoPin12, INPUT);
+   pinMode(echoPin13, INPUT);
+   pinMode(echoPin14, INPUT);
+   pinMode(echoPin15, INPUT);
+   pinMode(echoPin16, INPUT);
+   pinMode(echoPin17, INPUT);
+   pinMode(echoPin18, INPUT);
+   pinMode(echoPin19, INPUT);
+   pinMode(echoPin20, INPUT);
+   pinMode(echoPin21, INPUT);
+   pinMode(echoPin22, INPUT);
+   pinMode(echoPin23, INPUT);
+   pinMode(echoPin24, INPUT);
+ // pinMode(greenLED1, OUTPUT);
+ // pinMode(redLED1, OUTPUT);
+// pinMode(greenLED2, OUTPUT);
+ //pinMode(redLED2, OUTPUT);
+pinMode(greenLED3, OUTPUT);
+  pinMode(yellowLED3, OUTPUT);
+   pinMode(redLED3, OUTPUT);
+  pinMode(greenLED4, OUTPUT);
+ pinMode(yellowLED4, OUTPUT);
+ pinMode(redLED4, OUTPUT);
+
+  Serial.begin(9600); // Starts the serial communication
+}
+
+void loop() {
+ 
+  // Clears the trigPin
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+   //SENSOR 1
+  duration1 = pulseIn(echoPin1, HIGH);
+  distance1 = duration1 * 0.034 / 2;
+ 
+  if (distance1 >= danger_distance) {
+    Servo1.write(0) ;Servo2.write(180) ; 
+   delay(1000); 
+  } else {
+   Servo1.write(90) ;Servo2.write(90); 
+   delay(1000); 
+  }
+
+  delay(5);
+
+ //SENSOR 2
+   digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration2 = pulseIn(echoPin2, HIGH);
+ distance2 = duration2 * 0.034 / 2;
+ //delay(5);
+// if (  distance2 >= danger_distance) {
+//    digitalWrite(greenLED2, LOW); // Turn off green LED
+//    digitalWrite(redLED2, HIGH); // Turn on red LED
+//  } else {
+//    digitalWrite(greenLED2, HIGH); // Turn on green LED
+//    digitalWrite(redLED2, LOW);   // Turn off red LED
+//  }
+ delay(5);
+ 
+ //SENSOR 3
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration3 = pulseIn(echoPin3, HIGH);
+ distance3 = duration3 * 0.034 / 2;
+// if (distance3 >= danger_distance ) {
+//    digitalWrite(greenLED3, LOW); // Turn off green LED
+//    digitalWrite(redLED3, HIGH); // Turn on red LED
+//  } else {
+//    digitalWrite(greenLED3, HIGH); // Turn on green LED
+//    digitalWrite(redLED3, LOW);   // Turn off red LED
+//  }
+ //   delay(20);
+ delay(5);
+ 
+ //SENSOR 4
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration4 = pulseIn(echoPin4, HIGH);
+ distance4 = duration4 * 0.034 / 2;
+// if (distance4 >= danger_distance) {
+//    digitalWrite(greenLED4, LOW); // Turn off green LED
+//    digitalWrite(redLED4, HIGH); // Turn on red LED
+//  } else {
+//    digitalWrite(greenLED4, HIGH); // Turn on green LED
+//    digitalWrite(redLED4, LOW);   // Turn off red LED
+//  }
+ delay(5);
+ 
+ //SENSOR 5
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration5 = pulseIn(echoPin5, HIGH);
+ distance5 = duration5 * 0.034 / 2;
+// if (distance5 >= danger_distance) {
+//    digitalWrite(greenLED5, LOW); // Turn off green LED
+//    digitalWrite(redLED5, HIGH); // Turn on red LED
+//  } else {
+//    digitalWrite(greenLED5, HIGH); // Turn on green LED
+//    digitalWrite(redLED5, LOW);   // Turn off red LED
+//  }
+   delay(5);
+ 
+ //SENSOR 6
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration6 = pulseIn(echoPin6, HIGH);
+ distance6 = duration6 * 0.034 / 2;
+
+ delay(5);
+  
+ 
+  
+ //SENSOR 7
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration7 = pulseIn(echoPin7, HIGH);
+ distance7 = duration7 * 0.034 / 2;
+delay(5);
+ //SENSOR 8
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration8 = pulseIn(echoPin8, HIGH);
+ distance8 = duration8 * 0.034 / 2;
+
+ delay(5);
+ //SENSOR 9
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration9 = pulseIn(echoPin9, HIGH);
+ distance9 = duration9 * 0.034 / 2;
+ delay(5);
+ //SENSOR 10
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration10 = pulseIn(echoPin10, HIGH);
+ distance10 = duration10 * 0.034 / 2;
+  delay(5);
+ //SENSOR 11
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration11 = pulseIn(echoPin11, HIGH);
+ distance11 = duration11 * 0.034 / 2;
+delay(5);
+ //SENSOR 12
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration12 = pulseIn(echoPin12, HIGH);
+ distance12 = duration12 * 0.034 / 2;
+ if (distance12 >= danger_distance) {
+Servo3.write(90) ;
+   delay(1000); 
+  } else {
+   Servo3.write(0) ; 
+   delay(1000); 
+  }
+
+ delay(5);
+ //SENSOR 13
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration13 = pulseIn(echoPin13, HIGH);
+ distance13 = duration13 * 0.034 / 2;
+  delay(5);
+ //SENSOR 14
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration14 = pulseIn(echoPin14, HIGH);
+ distance14 = duration14 * 0.034 / 2;
+ delay(5);
+ //SENSOR 15
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration15 = pulseIn(echoPin15, HIGH);
+ distance15 = duration15 * 0.034 / 2;
+  delay(5);
+ //SENSOR 16
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration16= pulseIn(echoPin16, HIGH);
+ distance16 = duration16 * 0.034 / 2;
+ if (distance16 > minor_danger_distance) {
+  digitalWrite(redLED3, LOW);
+  digitalWrite(yellowLED3, LOW);
+  digitalWrite(greenLED3, HIGH);
+} else if (distance16 <= minor_danger_distance && distance16 > danger_distance) {
+  digitalWrite(redLED3, LOW);
+  digitalWrite(greenLED3, LOW);
+  digitalWrite(yellowLED3, HIGH);
+} else {
+  digitalWrite(redLED3, HIGH);
+  digitalWrite(greenLED3, LOW);
+  digitalWrite(yellowLED3, LOW);
+}
+ delay(5);
+
+ delay(5);
+ //SENSOR 17
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration17= pulseIn(echoPin17, HIGH);
+ distance17 = duration17 * 0.034 / 2;
+  if (distance17 > minor_danger_distance) {
+  digitalWrite(redLED4, LOW);
+  digitalWrite(yellowLED4, LOW);
+  digitalWrite(greenLED4, HIGH);
+} else if (distance17 <= minor_danger_distance && distance17 > danger_distance) {
+  digitalWrite(redLED4, LOW);
+  digitalWrite(greenLED4, LOW);
+  digitalWrite(yellowLED4, HIGH);
+} else {
+  digitalWrite(redLED4, HIGH);
+  digitalWrite(greenLED4, LOW);
+  digitalWrite(yellowLED4, LOW);
+}
+ delay(5);
+ //SENSOR 18
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration18= pulseIn(echoPin18, HIGH);
+ distance18 = duration18 * 0.034 / 2;
+ //  if (distance18 >= danger_distance) {
+  //  Servo5.write(90) ; //Servo5.write(180);
+//   delay(1000); 
+ // } else {
+//   Servo5.write(0) ;//Servo5.write(90);  
+//   delay(1000); 
+//  }
+  delay(5);
+ //SENSOR 19
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration19= pulseIn(echoPin19, HIGH);
+ distance19 = duration19 * 0.034 / 2;
+ delay(5);
+ //SENSOR 20
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration20= pulseIn(echoPin20, HIGH);
+ distance20 = duration20 * 0.034 / 2;
+ delay(5);
+  //SENSOR 21
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration21= pulseIn(echoPin21, HIGH);
+ distance21 = duration21 * 0.034 / 2;
+ delay(5);
+  //SENSOR 22
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration22= pulseIn(echoPin22, HIGH);
+ distance22 = duration22 * 0.034 / 2;
+ if (distance22 >= danger_distance) {
+  Servo4.write(0) ; Servo5.write(0);
+  delay(1000); 
+  } 
+  else {
+   Servo4.write(90) ;Servo5.write(90);  
+   delay(1000); 
+  }
+  
+
+
+
+  //SENSOR 23
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration23= pulseIn(echoPin23, HIGH);
+ distance23 = duration23 * 0.034 / 2;
+ delay(5);
+  //SENSOR 24
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration24= pulseIn(echoPin24, HIGH);
+ distance24 = duration24 * 0.034 / 2;
+ 
+
+  
+  
+  // Prints the distance on the Serial Monitor
+  Serial.print("distance 1 : ");
+  Serial.print(distance1);
+  Serial.println(" cm");
+
+  Serial.print("distance 2 : ");
+  Serial.print(distance2);
+  Serial.println(" cm");
+
+   Serial.print("distance 3 : ");
+  Serial.print(distance3);
+  Serial.println(" cm");
+  
+   Serial.print("distance 4 : ");
+  Serial.print(distance4);
+  Serial.println(" cm");
+  Serial.print("distance 5 : ");
+  Serial.print(distance5);
+  Serial.println(" cm");
+  Serial.print("distance 6 : ");
+  Serial.print(distance6);
+  Serial.println(" cm");
+  Serial.print("distance 7 : ");
+  Serial.print(distance7);
+  Serial.println(" cm");
+  Serial.print("distance 8 : ");
+  Serial.print(distance8);
+  Serial.println(" cm");
+  Serial.print("distance 9 : ");
+  Serial.print(distance9);
+  Serial.println(" cm");
+  Serial.print("distance 10 : ");
+  Serial.print(distance10);
+  Serial.println(" cm");
+  Serial.print("distance 11 : ");
+  Serial.print(distance11);
+  Serial.println(" cm");
+  Serial.print("distance 12 : ");
+  Serial.print(distance12);
+  Serial.println(" cm");
+  Serial.print("distance 13 : ");
+  Serial.print(distance13);
+  Serial.println(" cm");
+    Serial.print("distance 14 : ");
+  Serial.print(distance14);
+  Serial.println(" cm");
+  Serial.print("distance 15 : ");
+  Serial.print(distance15);
+  Serial.println(" cm");
+  Serial.print("distance 16 : ");
+  Serial.print(distance16);
+  Serial.println(" cm");
+  Serial.print("distance 17 : ");
+  Serial.print(distance17);
+  Serial.println(" cm");
+   Serial.print("distance 18 : ");
+  Serial.print(distance18);
+  Serial.println(" cm");
+  Serial.print("distance 19 : ");
+  Serial.print(distance19);
+  Serial.println(" cm");
+  Serial.print("distance 20 : ");
+  Serial.print(distance20);
+  Serial.println(" cm");
+  Serial.print("distance 21 : ");
+  Serial.print(distance21);
+  Serial.println(" cm");
+  Serial.print("distance 22 : ");
+  Serial.print(distance22);
+  Serial.println(" cm");
+  Serial.print("distance 23 : ");
+  Serial.print(distance23);
+  Serial.println(" cm");
+  Serial.print("distance 24 : ");
+  Serial.print(distance24);
+  Serial.println(" cm");
+   
+}
